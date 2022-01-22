@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contacts App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+    <div class="modal card" id="add-modal">
+      <div class="modal__content">
+        <label for="First Name">First Name</label>
+        <input type="text" name="First Name" id="First-Name" />
+        <label for="Last Name">Last Name</label>
+        <input type="text" name="Last Name" id="Last-Name" />
+        <label for="image-url">Profile Photo(url)</label>
+        <input type="text" name="image-url" id="image-url" />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="" />
+        <label for="phone">Phone No:</label>
+        <input type="number" name="phone" id="" step="10" />
+        <div class="status">
+          <label for="active">Active</label>
+          <input type="radio" name="status" value="Active" />
+          <label for="inactive">Inactive</label>
+          <input type="radio" name="status" value="Inactive" />
+        </div>
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--passive">Cancel</button>
+        <button class="btn btn--success">Add</button>
+      </div>
+    </div>
+    <div class="modal card" id="delete-modal">
+      <h2 class="modal__title">Are you sure?</h2>
+      <p class="modal__content">
+        Are you sure you want to delete this contact?
+      </p>
+      <div class="modal__actions">
+        <button id="btn-danger" class="btn btn--passive">No (Cancel)</button>
+        <button id="btn-success" class="btn btn--danger">Yes</button>
+      </div>
+    </div>
+    <div class="edit-modal" id="edit-contact-modal">
+      <label for="First Name">First Name</label>
+      <input type="text" name="First Name" id="First-Name" />
+      <label for="Last Name">Last Name</label>
+      <input type="text" name="Last Name" id="Last-Name" />
+      <label for="image-url">Profile Photo(url)</label>
+      <input type="text" name="image-url" id="image-url" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="" />
+      <label for="phone">Phone No:</label>
+      <input type="number" name="phone" id="" step="10" />
+      <div id="save-btn">
+        <button class="btn btn--success">SAVE</button>
+      </div>
+    </div>
+    <header>
+      <h1>My Contact App</h1>
+      <img
+        src="/assets/add-svgrepo-com (1).svg"
+        alt="add-Contact"
+        id="contact-add"
+      />
+    </header>
+
+    <main>
+      <section id="entry-text" class="card">
+        <p>No Contacts Added!</p>
+      </section>
+      <div id="contact-list"></div>
+    </main>
+  </body>
+</html>
