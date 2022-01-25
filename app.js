@@ -146,6 +146,14 @@ const editContactHandler = (obj) => {
   selectedContactForEdit = obj;
 };
 
+const randomNumberGenerator = () => {
+  return Math.floor(Math.random() * 100000 + 1);
+};
+
+const randomAvatarUrlGenerator = () => {
+  return `https://avatars.dicebear.com/api/bottts/${randomNumberGenerator()}.svg`;
+};
+
 const renderContactElement = () => {
   resetUi();
 
@@ -157,17 +165,19 @@ const renderContactElement = () => {
     newContactElement.className = "contact-element";
     newContactElement.innerHTML = `
        <div class="contact-element__image">
-       <img src="${
-         !contact.image ? "images/profile-img.jpg" : contact.image
-       }" alt="${contact.firstName}"> 
+       <img src="${contact.image}" alt="User-image"> 
        </div>
        <div class="contact-element__info">
        <h2>${contact.firstName} ${contact.lastName}</h2>
-       <p><img src="assets/email.png"> ${contact.email}</p>
-       <p><img src="assets/phone.png"> ${contact.phone}</p>
-       <p>Status : <bold style="color : ${
+      <div class="inner-div"><p><img src="assets/email.png"> ${
+        contact.email
+      }</p></div>
+      <div class="inner-div"><p><img src="assets/phone.png"> ${
+        contact.phone
+      }</p></div>
+       <div class="inner-div"><p>Status : <bold style="color : ${
          contact.status === "Active" ? "green" : "red"
-       }">${contact.status}</bold></p>
+       }">${contact.status}</bold></p></div>
        <div class="edit-box">
        <div id=${editId} class="btn btn--edit edits">
        <img src="assets/edit-btn.png"></div>
@@ -232,7 +242,9 @@ const formValidation = (
 const addContactHandler = () => {
   const firstName = userInputs[0].value;
   const lastName = userInputs[1].value;
-  const imageValue = userInputs[2].value;
+  const imageValue = userInputs[2].value
+    ? userInputs[2].value
+    : randomAvatarUrlGenerator();
   const emailValue = userInputs[3].value;
   const phoneNoVal = userInputs[4].value;
   const statusVal = userInputs[5].checked

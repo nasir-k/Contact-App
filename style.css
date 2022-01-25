@@ -144,10 +144,6 @@ input:focus {
   display: none;
 }
 
-.optional {
-  display: inline !important ;
-}
-
 .visible-alert {
   display: inline;
 }
