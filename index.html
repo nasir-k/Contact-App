@@ -6,27 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Contacts App</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="app.js" defer></script>
+    <script
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <div id="backdrop"></div>
     <div class="modal card" id="add-modal">
       <div class="modal__content">
+        <h3 style="text-align: center">Create Contact</h3>
         <label for="First Name">First Name</label>
         <input type="text" name="First Name" id="First-Name" />
+        <small class="hidden-alert" id="valid-alert" style="color: red"
+          >Required*</small
+        >
         <label for="Last Name">Last Name</label>
         <input type="text" name="Last Name" id="Last-Name" />
+        <small class="hidden-alert" id="valid-alert" style="color: red"
+          >Required*</small
+        >
         <label for="image-url">Profile Photo(url)</label>
         <input type="text" name="image-url" id="image-url" />
+        <small class="hidden-alert optional" id="valid-alert" style="color: red"
+          >optional</small
+        >
         <label for="email">Email</label>
         <input type="email" name="email" id="" />
+        <small class="hidden-alert" id="valid-alert" style="color: red"
+          >Required*</small
+        >
         <label for="phone">Phone No:</label>
-        <input type="number" name="phone" id="" step="10" />
+        <input type="number" name="phone" id="" />
+        <small class="hidden-alert" id="valid-alert" style="color: red"
+          >Required*</small
+        >
+        <label for="status">Status</label>
         <div class="status">
           <label for="active">Active</label>
           <input type="radio" name="status" value="Active" />
           <label for="inactive">Inactive</label>
           <input type="radio" name="status" value="Inactive" />
+          <small class="hidden-alert" id="valid-alert" style="color: red"
+            >Required*</small
+          >
         </div>
       </div>
       <div class="modal__actions">
@@ -45,29 +73,51 @@
       </div>
     </div>
     <div class="edit-modal" id="edit-contact-modal">
+      <h3 style="text-align: center">Edit Contact</h3>
       <label for="First Name">First Name</label>
-      <input type="text" name="First Name" id="First-Name" />
+      <input type="text" name="first-name" id="First-Name" />
+      <span class="hidden-alert" id="valid-alert" style="color: red"
+        >Required*</span
+      >
       <label for="Last Name">Last Name</label>
-      <input type="text" name="Last Name" id="Last-Name" />
+      <input type="text" name="last-name" id="Last-Name" />
+      <span class="hidden-alert" id="valid-alert" style="color: red"
+        >Required*</span
+      >
       <label for="image-url">Profile Photo(url)</label>
       <input type="text" name="image-url" id="image-url" />
+      <span class="hidden-alert optional" id="valid-alert" style="color: red"
+        >optional</span
+      >
       <label for="email">Email</label>
       <input type="email" name="email" id="" />
+      <span class="hidden-alert" id="valid-alert" style="color: red"
+        >Required*</span
+      >
       <label for="phone">Phone No:</label>
-      <input type="number" name="phone" id="" step="10" />
+      <input type="number" name="phone" id="" />
+      <span class="hidden-alert" id="valid-alert" style="color: red"
+        >Required*</span
+      >
+      <label for="status">Status</label>
+      <div class="status">
+        <label for="active">Active</label>
+        <input type="radio" name="status" value="Active" />
+        <label for="inactive">Inactive</label>
+        <input type="radio" name="status" value="Inactive" />
+        <span class="hidden-alert" id="valid-alert" style="color: red"
+          >Required*</span
+        >
+      </div>
       <div id="save-btn">
-        <button class="btn btn--success">SAVE</button>
+        <button class="btn btn--success" id="update-btn-edit">Save</button>
+        <button class="btn btn--danger" id="cancel-btn-edit">Cancel</button>
       </div>
     </div>
     <header>
-      <h1>My Contact App</h1>
-      <img
-        src="/assets/add-svgrepo-com (1).svg"
-        alt="add-Contact"
-        id="contact-add"
-      />
+      <h1><img src="/assets/contacts.png" alt="Contacts" />My Contact App</h1>
     </header>
-
+    <img src="/assets/add-btn.png" alt="Add Contact" id="contact-add" />
     <main>
       <section id="entry-text" class="card">
         <p>No Contacts Added!</p>
