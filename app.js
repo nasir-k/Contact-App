@@ -69,6 +69,11 @@ const clearUsrInputs = () => {
       ? (userinput.checked = false)
       : (userinput.value = "")
   );
+  addValidAlert.forEach((valiAl, idx) => {
+    if (valiAl.className.includes("visible-alert")) {
+      addValidAlert[idx].classList.remove("visible-alert");
+    }
+  });
 };
 
 const cancelAddContactModal = () => {
