@@ -158,20 +158,20 @@ const renderContactElement = () => {
     newContactElement.innerHTML = `
        <div class="contact-element__image">
        <img src="${
-         !contact.image ? "/images/profile-img.jpg" : contact.image
+         !contact.image ? "images/profile-img.jpg" : contact.image
        }" alt="${contact.firstName}"> 
        </div>
        <div class="contact-element__info">
        <h2>${contact.firstName} ${contact.lastName}</h2>
-       <p><img src="/assets/email.png"> ${contact.email}</p>
-       <p><img src="/assets/phone.png"> ${contact.phone}</p>
+       <p><img src="assets/email.png"> ${contact.email}</p>
+       <p><img src="assets/phone.png"> ${contact.phone}</p>
        <p>Status : <bold style="color : ${
          contact.status === "Active" ? "green" : "red"
        }">${contact.status}</bold></p>
        <div class="edit-box">
        <div id=${editId} class="btn btn--edit edits">
-       <img src="/assets/edit-btn.png"></div>
-       <div id=${deleteId} class="btn btn--delete editd"><img src="/assets/delete-btn.png"></i></div>
+       <img src="assets/edit-btn.png"></div>
+       <div id=${deleteId} class="btn btn--delete editd"><img src="assets/delete-btn.png"></i></div>
        </div>
        </div>
       `;
