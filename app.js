@@ -34,10 +34,10 @@ let successBtn = document.getElementById("btn-success");
 
 let contacts = [];
 
-if (!sessionStorage.getItem("contactsData")) {
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+if (!localStorage.getItem("contactsData")) {
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
 } else {
-  contacts = JSON.parse(sessionStorage.getItem("contactsData"));
+  contacts = JSON.parse(localStorage.getItem("contactsData"));
 }
 
 let selectedContactForEdit = {};
@@ -117,7 +117,7 @@ const deleteContactConfirmation = (contactId) => {
   );
 
   contacts.splice(contactIndex, 1);
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
 
   const newContactList = document.getElementById("contact-list");
   newContactList.children[contactIndex].remove();
@@ -165,7 +165,7 @@ const renderContactElement = () => {
     newContactElement.className = "contact-element";
     newContactElement.innerHTML = `
        <div class="contact-element__image">
-       <img src="${contact.image}" alt="User-image"> 
+       <img src="${contact.image}" alt="User-image">
        </div>
        <div class="contact-element__info">
        <h2>${contact.firstName} ${contact.lastName}</h2>
@@ -282,7 +282,7 @@ const addContactHandler = () => {
   };
   contacts.push(newContacts);
 
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
 
   console.log(contacts);
 
@@ -334,7 +334,7 @@ const editModalUpdateBtnHandler = () => {
     editedContact
   );
 
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
 
   closeEditContactModal();
   removeBackdrop();

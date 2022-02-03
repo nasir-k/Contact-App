@@ -120,6 +120,7 @@ input:focus {
   position: fixed;
   bottom: 10%;
   right: 5%;
+  cursor: pointer;
 }
 .card {
   background: white;
@@ -284,10 +285,6 @@ h4 {
 #edit-contact-modal {
   display: none;
 }
-
-/* #edit-box {
-  display: flex;
-} */
 
 #edit-contact-modal.visible {
   position: absolute;
